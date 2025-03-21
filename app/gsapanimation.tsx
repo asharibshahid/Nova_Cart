@@ -9,7 +9,7 @@ import Head from "next/head";
 export default function HeroSection() {
   const sphereRef = useRef<HTMLDivElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
-  const [isHovered, setIsHovered] = useState(false);
+ 
 
   // 3D Sphere Animation
   useEffect(() => {
@@ -47,7 +47,7 @@ export default function HeroSection() {
     container.addEventListener("mousemove", handleMove);
     return () => container.removeEventListener("mousemove", handleMove);
   }, []);
-
+  
   // Floating Elements (Slower on Mobile)
   useEffect(() => {
     gsap.to(".float-element", {
@@ -117,8 +117,6 @@ export default function HeroSection() {
               <Link
                 href="/hero"
                 className="relative overflow-hidden group"
-                onMouseEnter={() => setIsHovered(true)}
-                onMouseLeave={() => setIsHovered(false)}
               >
                 <div className="absolute inset-0 bg-gradient-to-r from-indigo-600 to-emerald-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 <button className={`relative px-8 md:px-16 py-2 md:py-4 bg-black/50 backdrop-blur-lg border border-white/20 rounded-full text-base md:text-xl font-medium text-white group-hover:text-white/90 transition-all duration-300`}>
